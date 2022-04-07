@@ -175,5 +175,5 @@ def article_delete_view(request, slug):
     if request.method == 'POST':
         obj.delete()
         return redirect('/articles')
-    return render(request, 'articles/delete.html', {'obj': obj})
+    return render(request, 'articles/delete.html')
 

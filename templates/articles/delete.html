@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <p>Rostan ham o'chirib yubormoqchimisiz?</p>
+    <button id="delete-article" type="submit" class="btn btn-danger">Yeah</button>
+    <a href="/articles" class="btn btn-primary">Not yet</a>
+</form>
+{% endblock %}

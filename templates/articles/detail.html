@@ -16,5 +16,8 @@
 <header style="margin-top: 10px; color: green;">
     <a href="{% url 'article_update_view' object.slug %}">Update</a>
 </header>
+<header style="margin-top: 10px; color: green;">
+    <a href="{% url 'article_delete_view' object.slug %}">Delete</a>
+</header>
 
 {% endblock %}

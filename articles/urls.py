@@ -5,7 +5,8 @@ from .views import (home_view,
                     create_article_view,
                     article_create_form_view,
                     my_articles_view,
-                    article_update_view
+                    article_update_view,
+                    article_delete_view
                     )
 
 
@@ -16,7 +17,8 @@ urlpatterns = [
     path('my-articles/', my_articles_view),
     path('create/', create_article_view),
     path('fcreate/', article_create_form_view, name='fcreate'),
-    path('<slug:slug>/', article_detail_view, name='article_detail_view'),
+    path('delete/<slug:slug>/', article_delete_view, name='article_delete_view'),
     path('update/<slug:slug>/', article_update_view, name='article_update_view'),
+    path('<slug:slug>/', article_detail_view, name='article_detail_view'),
 
 ]
