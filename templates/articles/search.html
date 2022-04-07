@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Search list</h1>
+<ul style="list-style: none;color: red;">
+    {% for message in messages %}
+    <li>
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+
+{% for obj in object %}
+<h2>{{ obj.title }}</h2>
+<p>{{ obj.content }}</p>
+<br>
+{% endfor %}
+
+{% endblock %}

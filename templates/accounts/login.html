@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if not request.user.is_authenticated %}
+<form method="post">
+    {% csrf_token %}
+    {% comment %}
+    <br>
+    <div style="margin-top: 20px;">
+        <input style="padding: 5px 1px; font-size: 20px;" type="text" name="username" placeholder="username">
+    </div>
+    <div style="padding: 5px 1px; font-size: 20px;" type="text" name="username" placeholder="username">
+        <input style="padding: 5px 1px; font-size: 20px;" type="password" name="password" placeholder="password">
+    </div>
+    {% endcomment %}
+
+    {{ form.as_p }}
+    <div style="padding: 5px 1px; font-size: 20px;" type="text" name="username" placeholder="username">
+        <input style="padding: 5px 0; font-size: 20px;margin-top: 20px;" type="submit" value="Login">
+    </div>
+
+</form>
+<p>Accountingiz bolmasa birinchi <a href="/register/">registeratsiyadan</a> oting oching</p>
+{% else %}
+<p>Siz login qilgansiz <a href="/logout">logout</a> qilishingiz kerak!</p>
+{% endif %}
+<div style="margin-top: 20px">
+    <ul>
+        {% if messages %}
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+</div>
+
+{% endblock %}

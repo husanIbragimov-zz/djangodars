@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <ul style="list-style: none;color: red;">
+            {% for message in messages %}
+            <li>
+                {{ message }}
+            </li>
+            {% endfor %}
+        </ul>
+
+        {% if obj %}
+        <a href="/articles/{{ obj.slug }}">{{ obj.title }} - {{ obj.content }}</a>
+        {% else %}
+        <form method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <br>
+            {% comment %}
+            <div>
+                <input type="text" name="title" placeholder="You should write title" style="padding: 5px">
+            </div>
+            <br>
+            <div>
+                <textarea name="content" rows="6" placeholder="You should write content"
+                          style="padding: 5px;"></textarea>
+            </div>
+            {% endcomment %}
+
+            {{ form.as_p }}
+
+            {% comment %}
+            <p>Title: {{ form.title }}</p>
+            <p>Content: {{ form.content }}</p>
+            <p> Tags: {{ form.tags }}</p>
+            {% endcomment %}
+            <br>
+            <div class="d-grid gap-2">
+                <button type="submit" style="Background: #b0c4de; color: grey;" class="btn btn-primary">Create Article
+                </button>
+            </div>
+            <br>
+        </form>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,11 @@
+body {
+    background-color: #fffccf;
+}
+#block-content a:hover {
+    margin-left: 5px;
+    transition: .3s;
+    color: green;
+}
+.logo-img {
+    width: 70%;
+}

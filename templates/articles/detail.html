@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p><a href="../" style="text-decoration:none;color:red;"><=Back</a></p>
+<h3>Author: {{ object.author }}</h3>
+<h1>{{ object.title }} - ID: {{ object.id }}</h1>
+{% if object.image %}
+    <img style="width: 450px;" src="{{ object.image.url }}">
+{% endif %}
+<h3>{{ object.content }}</h3>
+<p>
+    {% for obj in object.tags.all %}
+        <a href="#">#{{ obj }} </a>
+    {% endfor %}
+</p>
+<header style="margin-top: 10px; color: green;">
+    <a href="{% url 'article_update_view' object.slug %}">Update</a>
+</header>
+
+{% endblock %}

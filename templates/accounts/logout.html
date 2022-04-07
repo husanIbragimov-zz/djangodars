@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+    <form method="post">
+    {% csrf_token %}
+        <p>Rostan ham log out qilmoqchimisiz?</p>
+
+    <button type="submit">Logout</button>
+</form>
+{% else %}
+    <p>Birinchi <a href="/login">login</a> qilishingiz kerak!</p>
+{% endif %}
+{% endblock %}
